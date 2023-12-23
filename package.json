@@ -1,6 +1,6 @@
 {
   "name": "binance-pay",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "description": "Aceptar pagos atraves de BINANCE en tu WEB/APP",
   
