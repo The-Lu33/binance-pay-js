@@ -1,5 +1,6 @@
 import { randomBytes } from "crypto";
 import CryptoJS from "crypto-js";
+import { PAY_PROPS } from "./types";
 
 const url = "https://bpay.binanceapi.com/binancepay/openapi/v3/order";
 
@@ -12,23 +13,14 @@ export async function createOrder({
   goodsType,
   goodsCategory,
   referenceGoodsId,
-}: {
-  name: string;
-  description: string;
-  price: number;
-  APIKEY: string;
-  SECRETKEY: string;
-  goodsType: string;
-  goodsCategory: string;
-  referenceGoodsId: string;
-}) {
+}: PAY_PROPS) {
   try {
     const timestamp = Date.now().toString();
     const randomString = () => {
       return randomBytes(32).toString("hex").substring(0, 32);
     };
     const nonce = randomString();
-    const dataExample = {
+    const data = {
       env: {
         terminalType: "APP",
       },
@@ -49,7 +41,7 @@ export async function createOrder({
         },
       ],
     };
-    const body = JSON.stringify(dataExample);
+    const body = JSON.stringify(data);
     const payload = timestamp + "\n" + nonce + "\n" + body + "\n";
     const signature = CryptoJS.HmacSHA512(payload, SECRETKEY)
       .toString()
@@ -71,6 +63,7 @@ export async function createOrder({
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
+      return error;
     }
   }
 }
