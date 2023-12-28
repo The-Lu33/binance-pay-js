@@ -2,6 +2,9 @@
 
 This package provides functions to interact with Binance Pay, using nodejs or nextjs server-side.
 
+The first thing you have to do is to create an account in the binance exchange you can do it from this [link :D](https://accounts.binance.info/register?ref=216281349), once you have created your account, go to [binance merchant](https://merchant.binance.com/en/)
+if you want to test you can create an api key and a secret key for free, otherwise you must verify the merchant profile where you will be asked for some income data, once you finish the verification you can use it naturally and you can proceed with the use.
+
 ## Instalación
 
 ```bash
@@ -31,7 +34,7 @@ const order = await createOrder({
 });
 ```
 
-# creatOrdee response example
+# createOrder response example
 
 ```
 {
@@ -58,6 +61,9 @@ Consulta una orden existente.
 
 ```
 const { queryOrder } = require('binance-pay');
+or
+import {queryOrder} from 'binance-pay'
+
 
 const query = await queryOrder({
   prepayId: "270342174837137408",
@@ -84,3 +90,36 @@ const query = await queryOrder({
   }
 }
 ```
+
+# Additional Documentation
+
+[binance merchant](https://merchant.binance.com/en/docs/home)
+
+# Contribute
+
+All contributions are welcome! Please follow our contribution guidelines.
+
+# License
+
+This project is licensed under the MIT license.
+
+# Paquete Binance Pay
+
+Este paquete proporciona funciones para interactuar con Binance Pay.
+
+...
+
+## Enlaces
+
+- [GitHub Repo](https://github.com/The-Lu33/binance-pay-js)
+- [LinkedIn](https://www.linkedin.com/in/luisangel-tapia/)
+
+...
+
+## Contribuir
+
+¡Todas las contribuciones son bienvenidas!
+
+## Licencia
+
+Este proyecto está bajo la licencia [MIT](LICENSE).
